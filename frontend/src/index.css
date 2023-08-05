@@ -10,6 +10,19 @@
   box-sizing: border-box;
 }
 
+.btn__white {
+  padding: 8px 30px;
+  color: black;
+  border-radius: 12px;
+  background: white;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.btn__white:hover {
+  background: white;
+}
+
 .btn__gradient {
   padding: 8px 30px;
   color: white;
@@ -19,6 +32,7 @@
   border-color: #5b53f1;
   background: linear-gradient(90deg, #5b53f1 0%, #5b53f14a 100%);
   transition: 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 .purple__gradient {

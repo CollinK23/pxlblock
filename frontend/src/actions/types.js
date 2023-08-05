@@ -12,3 +12,6 @@ export const LOAD_USER_PROFILE_FAIL = "LOAD_USER_PROFILE_FAIL";
 
 export const FOLLOW_SUCCESS = "FOLLOW_SUCCESS";
 export const FOLLOW_FAIL = "FOLLOW_FAIL";
+
+export const LIKE_SUCCESS = "LIKE_SUCCESS";
+export const LIKE_FAIL = "LIKE_FAIL";

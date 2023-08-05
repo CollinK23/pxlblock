@@ -57,7 +57,7 @@ const Discover = () => {
       <div id="projects" className="project__grid justify-center">
         {info.map((stats, index) => {
           if (
-            (stats.projectName.includes(jobTitleFilter) ||
+            (stats.title.includes(jobTitleFilter) ||
               stats.name.includes(jobTitleFilter)) &&
             (fieldFilter == "All Creative Fields" || stats.field == fieldFilter)
           ) {

@@ -12,6 +12,7 @@ import Login from "./Login";
 import Register from "./Register";
 import Images from "./Images";
 import ProjectDetails from "./ProjectDetails";
+import Create from "./Create";
 
 export {
   Navbar,
@@ -28,4 +29,5 @@ export {
   Register,
   Images,
   ProjectDetails,
+  Create,
 };

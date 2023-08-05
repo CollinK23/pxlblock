@@ -33,7 +33,6 @@ class Project(models.Model):
     title = models.CharField(max_length=100)
     updated = models.DateTimeField(auto_now=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    projectName = models.CharField(max_length=50, default='', blank=True)
     projectImage = models.ImageField(upload_to="images/", default='')
     username = models.CharField(max_length=50, blank=True)
     likes = models.ManyToManyField(User, related_name='project_likes', blank=True, through='projectLike')

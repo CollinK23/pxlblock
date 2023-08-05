@@ -10,6 +10,7 @@ import {
   Login,
   Register,
   ProjectDetails,
+  Create,
 } from "./components";
 import { connect } from "react-redux";
 import { checkAuth } from "./actions/auth";
@@ -35,6 +36,7 @@ const Pages = ({ checkAuth }) => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/project/:username/:id/*" element={<UserProject />} />
+        <Route path="/create" element={<Create />} />
       </Routes>
     </>
   );

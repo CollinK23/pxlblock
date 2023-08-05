@@ -20,6 +20,7 @@ urlpatterns = [
     # path('token/', MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
     # path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('<str:username>/follow', views.userFollow),
+    path('<int:pk>/like', views.likeProject),
     path('register', SignupView.as_view()),
     path('csrf_cookie', GetCSRFToken.as_view()),
     path('authenticated', CheckAuthenticatedView.as_view()),

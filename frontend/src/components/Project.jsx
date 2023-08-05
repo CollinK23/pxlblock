@@ -46,9 +46,7 @@ const Project = ({ stats }) => {
             />
           </div>
           <div className="img__overlay text-white sm:p-4 p-2">
-            <h1 className="font-bold text-[100%]  w-[80%]">
-              {stats.projectName}
-            </h1>
+            <h1 className="font-bold text-[100%]  w-[80%]">{stats.title}</h1>
             <ul className="list-none stats__grid text-inline font-medium sm:text-[14px] text-[80%]">
               <li>
                 <div
@@ -59,7 +57,7 @@ const Project = ({ stats }) => {
                 </div>
               </li>
               <li className="text-right">
-                <i className="fa-sharp fa-solid fa-thumbs-up fa-sm pr-1">
+                <i class="fa-solid fa-heart fa-sm pr-1">
                   {"  " + stats.likes.length}
                 </i>
               </li>
@@ -81,6 +79,7 @@ const Project = ({ stats }) => {
             >
               <img src={close} />
             </a>
+
             <div className="max-w-[1300px] absolute top-0">
               <ProjectDetails
                 username={stats.username}

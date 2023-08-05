@@ -9,6 +9,8 @@ import {
   AUTHENTICATED_SUCCESS,
   FOLLOW_FAIL,
   FOLLOW_SUCCESS,
+  LIKE_SUCCESS,
+  LIKE_FAIL,
 } from "../actions/types";
 
 const initialState = {
@@ -23,6 +25,10 @@ export default function (state = initialState, action) {
 
   switch (type) {
     case FOLLOW_SUCCESS:
+      return {
+        ...state,
+      };
+    case LIKE_SUCCESS:
       return {
         ...state,
       };
@@ -60,6 +66,7 @@ export default function (state = initialState, action) {
     case LOGIN_FAIL:
     case LOGOUT_FAIL:
     case FOLLOW_FAIL:
+    case LIKE_FAIL:
       return state;
     default:
       return state;

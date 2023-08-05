@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes, authentication_classes
-from .models import Project, Profile, Image
+from .models import Project, Profile, Image, projectLike
 from .serializers import ProjectSerializer, ProfileSerializer, userSerializers, ImageSerializer
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
@@ -105,9 +105,11 @@ def getProject(request, username, pk):
     images = project.images.all()
     serializer = ProfileSerializer(profile)
     serializer2 = ImageSerializer(images, many=True)
+    serializer3 = ProjectSerializer(project)
     data = {
         'profile': serializer.data,
-        'project': serializer2.data
+        'project': serializer2.data,
+        'projectInfo': serializer3.data,
     }
     return Response(data)
 
@@ -138,6 +140,19 @@ def userFollow(request, username, *args, **kwargs):
     else:
         pass
     return Response({"count": currentUser.profile.follows.count()})
+
+@api_view(['POST'])
+def likeProject(request, pk, *args, **kwargs):
+    project = Project.objects.get(id=pk)
+    user = request.user
+    action = request.data.get('action')
+
+    if action == 'like':
+        projectLike.objects.create(user=user, project=project)
+    elif action == 'unlike':
+        projectLike.objects.filter(user=user, project=project).delete()
+
+    return Response({"count": project.likes.count()})
 
 #check if current user is authenticated
 class CheckAuthenticatedView(APIView):

@@ -10,6 +10,8 @@ import {
   AUTHENTICATED_SUCCESS,
   FOLLOW_FAIL,
   FOLLOW_SUCCESS,
+  LIKE_SUCCESS,
+  LIKE_FAIL,
 } from "./types";
 import Cookies from "js-cookie";
 
@@ -165,6 +167,34 @@ export const handleFollow = (follow, username) => async (dispatch) => {
   } catch (err) {
     dispatch({
       type: FOLLOW_FAIL,
+    });
+  }
+};
+
+export const handleLike = (like, project) => async (dispatch) => {
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+      "X-CSRFToken": Cookies.get("csrftoken"),
+    },
+  };
+
+  const body = JSON.stringify({ action: like });
+
+  try {
+    const res = await axios.post(`/api/${project}/like`, body, config);
+    if (res.data.error) {
+      dispatch({
+        type: LIKE_FAIL,
+      });
+    } else {
+      dispatch({
+        type: LIKE_SUCCESS,
+      });
+    }
+  } catch (err) {
+    dispatch({
+      type: LIKE_FAIL,
     });
   }
 };
